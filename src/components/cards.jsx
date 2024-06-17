@@ -5,28 +5,31 @@ import Button from "@mui/material/Button";
 import Text from "@mui/material/Typography";
 
 export default function BasicCard(weather) {
-  const { ...rest } = weather;
-  
+  const {location, current} = weather
+  const {temp_c, condition} = current
+  const {text, icon} = condition
+  const {region, name, country} = location
+
   return (
     <Card sx={{ maxWidth: 275 }}>
       <CardContent>
         <Text sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Temperatura Cº: {rest.weather.current.temp_c}
+          Temperatura Cº: {temp_c}
         </Text>
         <Text sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Condição: {rest.weather.current.condition.text}
-        </Text>        
-        <Text sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          País: {rest.weather.location.country}<br/>
-
-          Região: {rest.weather.location.region}<br/>
-          
-          Cidade: {rest.weather.location.name}
+          Condição: {text}
         </Text>
-        <img src={rest.weather.current.condition.icon}></img>
+        <Text sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          País: {country}
+          <br />
+          Região: {region}
+          <br />
+          Cidade: {name}
+        </Text>
+        <img src={icon}></img>
       </CardContent>
       <CardActions>
-        <Button size="small">ME MAMA</Button>
+        <Button size="small">EU SOU UM BOTÃO</Button>
       </CardActions>
     </Card>
   );

@@ -19,8 +19,7 @@ function App() {
 
     if (resp?.ok) {
       const data = await resp.json();
-      setWeather(data);
-      console.log(weather);
+      setWeather(data);      
     } else {
       console.log(resp);
     }
@@ -37,7 +36,7 @@ function App() {
         }}
       ></input>
       <button onClick={checkCity}>Pesquisar</button>
-      {weather && <Cards weather={weather} />}
+      {weather && <Cards {...weather}/>}
     </>
   );
 }
