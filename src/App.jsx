@@ -1,6 +1,7 @@
 // api: http://api.weatherapi.com/v1/current.json?key=3ddb335117434888ae5133729232605&q=itabira
 
 import { useState } from "react";
+import Cards from "./components/cards";
 
 function App() {
   const [city, setCity] = useState("");
@@ -19,11 +20,10 @@ function App() {
     if (resp?.ok) {
       const data = await resp.json();
       setWeather(data);
+      console.log(weather);
     } else {
       console.log(resp);
     }
-
-    console.log(weather);
   }
 
   return (
@@ -37,17 +37,7 @@ function App() {
         }}
       ></input>
       <button onClick={checkCity}>Pesquisar</button>
-      {weather === "" ? (
-        ""
-      ) : (
-        <>
-          <p>Local: {weather.location.country}</p>
-          <p>Região: {weather.location.region}</p>
-          <p>Temperatura: {weather.current.temp_c}</p>
-          <p>{weather.current.condition.text}</p>
-          <img src={weather.current.condition.icon}></img>
-        </>
-      )}
+      {weather && <Cards weather={weather} />}
     </>
   );
 }
