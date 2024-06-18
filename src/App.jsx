@@ -1,7 +1,7 @@
 // api: http://api.weatherapi.com/v1/current.json?key=3ddb335117434888ae5133729232605&q=itabira
 
 import { useState } from "react";
-import Cards from "./components/cards";
+import { Layout } from "./components/Layout";
 
 function App() {
   const [city, setCity] = useState("");
@@ -36,7 +36,7 @@ function App() {
         }}
       ></input>
       <button onClick={checkCity}>Pesquisar</button>
-      {weather && <Cards {...weather}/>}
+      {weather && <Layout {...weather}/>}
     </>
   );
 }
