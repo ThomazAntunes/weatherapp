@@ -1,27 +1,25 @@
-// api: http://api.weatherapi.com/v1/current.json?key=3ddb335117434888ae5133729232605&q=itabira
-
 import { useState } from "react";
-import { Layout } from "./components/Layout";
+import Card from "./components/cards";
+import checkCity from "./helpers/getCity";
 
 function App() {
   const [city, setCity] = useState("");
-  const [weather, setWeather] = useState("");
+  const [weather, setWeather] = useState(null);
+  const [error, setError] = useState("");
 
-  async function checkCity() {
-    let resp;
+  async function cityData(city) {
     try {
-      resp = await fetch(
-        `http://api.weatherapi.com/v1/current.json?key=3ddb335117434888ae5133729232605&q=${city}&lang=pt`
-      );
-    } catch (error) {
-      console.log(error);
-    }
-
-    if (resp?.ok) {
-      const data = await resp.json();
-      setWeather(data);      
-    } else {
-      console.log(resp);
+      const data = await checkCity(city);
+      if (typeof data === "string") {
+        setError(data);
+        setWeather(null);
+      } else {
+        setWeather(data);
+        setError("");
+      }
+    } catch (err) {
+      setError("Falha ao fazer a requisição, favor tentar novamente");
+      setWeather(null);
     }
   }
 
@@ -34,9 +32,10 @@ function App() {
         onChange={(e) => {
           setCity(e.target.value);
         }}
-      ></input>
-      <button onClick={checkCity}>Pesquisar</button>
-      {weather && <Layout {...weather}/>}
+      />
+      <button onClick={() => cityData(city)}>Pesquisar</button>
+      {error && <p>{error}</p>}
+      {weather && <Card {...weather} />}
     </>
   );
 }
