@@ -1,0 +1,54 @@
+.mainCard {
+  background-color: #b1b1b1;
+  max-width: 475px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  margin-top: 10px;
+  line-height: 1;
+  font-size: 20px;
+  margin-left: 5%;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.localTime {
+  margin-right: 5%;
+  font-size: 20px;
+}
+
+.cardBody {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.condition {
+  display: flex;
+  flex-direction: column;
+}
+
+.addionalTemp {
+  display: flex;
+  flex-direction: column;
+}
+
+.temp {
+}
+
+p.condition {
+  font-size: 100px;
+}
+
+.cardFooter {
+  margin-left: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
