@@ -1,0 +1,43 @@
+.forecastContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
+  
+}
+
+.dayCard {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.dayCard h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.minMax{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spamClass{
+  display: flex;  
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  gap: 5px;
+}
+
+.img{
+  margin-top: 100px;
+}

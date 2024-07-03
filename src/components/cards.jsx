@@ -3,7 +3,6 @@ import iso31661 from "iso-3166-1";
 import styles from "../assets/css/Cards.module.css";
 import { FaTemperatureArrowDown, FaTemperatureArrowUp } from "react-icons/fa6";
 
-
 export default function BasicCard(weather) {
   const { location, current, forecast } = weather;
   const { temp_c, condition } = current;
@@ -35,11 +34,17 @@ export default function BasicCard(weather) {
       </div>
       <div className={styles.cardFooter}>
         <div className={styles.addionalTemp}>
-          <FaTemperatureArrowUp color= "#ff6969"/>
-          {maxtemp_c}
-          <FaTemperatureArrowDown color="blue"/>
-          {mintemp_c}
-          <p>Sensação:</p>
+          <>
+            <spam className={styles.spamClass}>
+              <FaTemperatureArrowUp size="25px" color="#E32727" />
+              {maxtemp_c}{"º"}
+            </spam>
+            <scam className={styles.spamClass}>
+              <FaTemperatureArrowDown size="25px" color="#08CEFF" />
+              {mintemp_c}{"º"}
+            </scam>
+          </>
+          <p>Sensação: SENSACIONAL</p>
         </div>
         <img src={icon} alt="weather icon" width="101" height="101" />
       </div>
@@ -47,20 +52,3 @@ export default function BasicCard(weather) {
   );
 }
 
-// css card
-// sx={{
-//   maxWidth: 475,
-//   backgroundImage: `url(${winter})`,
-//   backgroundSize: "cover",
-//   backgroundPosition: "center",
-//   borderRadius: 10,
-// }}
-
-// css typography
-// sx={{
-//   fontSize: 35,
-//   marginLeft: 5,
-//   marginBottom: -3,
-//   textShadow: "1px 1px 3px rgba(0,0 , 0, 0)",
-// }}
-// color="black"

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Card from "./components/cards";
 import checkCity from "./helpers/getCity";
+import Forecast from "./components/forecast";
+import styles from "./assets/css/App.module.css";
 
 function App() {
   const [city, setCity] = useState("");
@@ -25,17 +27,26 @@ function App() {
 
   return (
     <>
-      <h1>Bem Vindo ao LampWeather</h1>
-      <h3>Entre com a sua cidade</h3>
-      <input
-        placeholder="Cidade"
-        onChange={(e) => {
-          setCity(e.target.value);
-        }}
-      />
-      <button onClick={() => cityData(city)}>Pesquisar</button>
-      {error && <p>{error}</p>}
-      {weather && <Card {...weather} />}
+      <div>
+        <h1>Bem Vindo ao LampWeather</h1>
+        <h3>Entre com a sua cidade</h3>
+        <input
+          placeholder="Cidade"
+          onChange={(e) => {
+            setCity(e.target.value);
+          }}
+        />
+        <button onClick={() => cityData(city)}>Pesquisar</button>
+        {error && <p>{error}</p>}
+        {weather && (
+          <>
+            <div>
+              <Card {...weather} />
+              <Forecast {...weather} />
+            </div>
+          </>
+        )}
+      </div>
     </>
   );
 }
