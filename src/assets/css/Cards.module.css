@@ -1,5 +1,5 @@
 .mainCard {
-  background-color: #b1b1b1;
+  background-color: #ffffff;
   max-width: 475px;
   border-radius: 10px;
   display: flex;
@@ -51,4 +51,13 @@ p.condition {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.spamClass{
+  display: flex;  
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  gap: 5px;
+
 }
